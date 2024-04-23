@@ -3,8 +3,8 @@
   "name": "Programmers Hide Elements",
   "version": "1.0",
   "description": "Hide specific elements on Programmers to enhance focus.",
-  "permissions": ["activeTab", "scripting"],
-  "host_permissions": ["https://programmers.co.kr/*"],
+  "permissions": ["activeTab", "scripting", "storage"],
+  "host_permissions": ["https://school.programmers.co.kr/*"],
   "action": {
     "default_popup": "popup.html",
     "default_icon": "images/icon.png"
