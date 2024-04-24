@@ -14,7 +14,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://programmers.co.kr/*"],
+      "matches": ["https://school.programmers.co.kr/*"],
       "js": ["content.js"],
       "run_at": "document_idle"
     }
