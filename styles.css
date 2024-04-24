@@ -1,37 +1,52 @@
-/* 스위치 전체 스타일링 */
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
+body {
+  width: 200px;
+  margin: 0;
+  padding: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff;
+  color: #333;
+  text-align: center;
 }
 
-/* 실제 슬라이더 */
+img {
+  margin: auto;
+  display: block;
+}
+
+.switch {
+  margin-bottom: 10px;
+  align-items: center;
+  display: flex;
+  gap: 10px;
+}
+
 .switch input {
+  position: absolute;
   opacity: 0;
-  width: 0;
+  cursor: pointer;
   height: 0;
+  width: 0;
 }
 
 .slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
   background-color: #ccc;
-  border-radius: 34px;
+  border-radius: 20px;
+  transition: background-color 0.2s;
 }
 
 .slider:before {
-  position: absolute;
   content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
   background-color: white;
+  transition: transform 0.2s;
   border-radius: 50%;
 }
 
@@ -39,20 +54,14 @@ input:checked + .slider {
   background-color: #2196f3;
 }
 
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196f3;
-}
-
 input:checked + .slider:before {
-  transform: translateX(26px);
+  transform: translateX(20px);
 }
 
-/* Optional: 스위치 사이즈 조정을 위한 추가 스타일 */
-.slider.large {
-  width: 90px;
-  height: 52px;
+.slider.round {
+  border-radius: 34px;
 }
-.slider.large:before {
-  width: 46px;
-  height: 46px;
+
+.slider.round:before {
+  border-radius: 50%;
 }
