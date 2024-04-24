@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function applyVisibilitySettings() {
-  chrome.storage.local.get("visibilitySettings", (data) => {
+  chrome.storage.sync.get("visibilitySettings", (data) => {
     const settings = data.visibilitySettings || {};
     Object.keys(settings).forEach((selector) => {
       const isVisible = settings[selector];

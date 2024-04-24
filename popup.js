@@ -19,10 +19,10 @@ function updateVisibilitySettings(selector) {
       args: [selector],
     });
 
-    chrome.storage.local.get("visibilitySettings", (data) => {
+    chrome.storage.sync.get("visibilitySettings", (data) => {
       const settings = data.visibilitySettings || {};
       settings[selector] = !settings[selector];
-      chrome.storage.local.set({ visibilitySettings: settings });
+      chrome.storage.sync.set({ visibilitySettings: settings });
     });
   });
 }
