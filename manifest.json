@@ -1,16 +1,13 @@
 {
   "manifest_version": 3,
-  "name": "Programmers Hide Elements",
+  "name": "프로그래머스 가림판",
   "version": "1.0",
-  "description": "Hide specific elements on Programmers to enhance focus.",
+  "description": "Hide specific elements on Programmers to enhance competitive programming skill.",
   "permissions": ["activeTab", "scripting", "storage"],
   "host_permissions": ["https://school.programmers.co.kr/*"],
   "action": {
     "default_popup": "popup.html",
     "default_icon": "images/icon.png"
-  },
-  "background": {
-    "service_worker": "background.js"
   },
   "content_scripts": [
     {
