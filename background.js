@@ -1,3 +1,1 @@
-chrome.runtime.onInstalled.addListener(() => {
-  chrome.storage.sync.set({ visibilitySettings: {} });
-});
+// 설정을 스토리지에서 로드
