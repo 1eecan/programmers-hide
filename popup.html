@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>프로그래머스 가림판</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <img src="./images/icon.png" />
+    <h2>프로그래머스 가림판</h2>
+    <h4>(v1.0)</h4>
+    <div id="toggleContainer" style="display: block">
+      <label class="switch">
+        <input type="checkbox" id="togglePartTitleBreadcrumb" />
+        <span class="slider round"></span> 문제 유형 가리기
+      </label>
+      <label class="switch">
+        <input type="checkbox" id="toggleLevel" />
+        <span class="slider round"></span> 레벨 가리기
+      </label>
+      <label class="switch">
+        <input type="checkbox" id="toggleFinishedCount" />
+        <span class="slider round"></span> 완료한 사람 가리기
+      </label>
+      <label class="switch">
+        <input type="checkbox" id="toggleAcceptanceRate" />
+        <span class="slider round"></span> 정답률 가리기
+      </label>
+      <h4>기능이 잘 작동하지 않는다면 새로고침을 해주세요</h4>
+    </div>
+    <div id="otherSite" style="display: none">
+      <h4>현재 페이지가</h4>
+      <h4>https://school.programmers.co.kr/</h4>
+      <h4>이 아닙니다.</h4>
+    </div>
+    <h4>문의 사항이나 버그 리포트는</h4>
+    <a href="https://github.com/1eecan" id="github">여기로 부탁드립니다.🙇‍♂️</a>
+    <script src="popup.js"></script>
+  </body>
+</html>
