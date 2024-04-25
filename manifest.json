@@ -11,9 +11,14 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://school.programmers.co.kr/*"],
+      "matches": ["https://school.programmers.co.kr/learn/challenges*"],
       "js": ["content.js"],
-      "run_at": "document_idle"
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["https://school.programmers.co.kr/learn/courses/*"],
+      "js": ["lesson.js"],
+      "run_at": "document_start"
     }
   ],
   "icons": {

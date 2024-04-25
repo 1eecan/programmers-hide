@@ -41,6 +41,7 @@ const observer = new MutationObserver((mutations) => {
   timeout = setTimeout(() => {
     loadSettings();
     document.documentElement.style.visibility = "visible";
+    observer.disconnect();
   }, 100);
 });
 
