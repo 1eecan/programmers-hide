@@ -1,3 +1,12 @@
+const style = document.createElement("style");
+
+style.textContent = `
+  .part-title, .breadcrumb, td.level, td.finished-count, td.acceptance-rate {
+    visibility: hidden;
+  }
+`;
+document.documentElement.appendChild(style);
+
 const elementVisibility = {
   ".part-title, .breadcrumb": false,
   "td.level": false,
@@ -5,13 +14,18 @@ const elementVisibility = {
   "td.acceptance-rate": false,
 };
 
-document.documentElement.style.visibility = "hidden";
+async function loadSettings() {
+  try {
+    const data = await new Promise((resolve, reject) => {
+      chrome.storage.local.get("visibilitySettings", (result) => {
+        if (chrome.runtime.lastError) {
+          reject(chrome.runtime.lastError);
+        }
+        resolve(result);
+      });
+    });
 
-function loadSettings() {
-  chrome.storage.local.get("visibilitySettings", (data) => {
-    const initialVisibility = data.visibilitySettings
-      ? data.visibilitySettings
-      : elementVisibility;
+    const initialVisibility = data.visibilitySettings || elementVisibility;
 
     if (data.visibilitySettings) {
       console.log("Loaded from storage");
@@ -22,7 +36,9 @@ function loadSettings() {
     Object.keys(initialVisibility).forEach((selector) => {
       updateVisibility(selector, initialVisibility[selector]);
     });
-  });
+  } catch (error) {
+    console.error("Error loading settings:", error);
+  }
 }
 
 function updateVisibility(selector, isHidden) {
@@ -34,14 +50,15 @@ function updateVisibility(selector, isHidden) {
 
 let timeout = null;
 
-const observer = new MutationObserver((mutations) => {
+const observer = new MutationObserver(() => {
   if (timeout) {
     clearTimeout(timeout);
   }
   timeout = setTimeout(() => {
+    document.documentElement.style.visibility = "hidden";
     loadSettings();
     document.documentElement.style.visibility = "visible";
-  }, 100);
+  }, 1);
 });
 
 observer.observe(document.documentElement, {

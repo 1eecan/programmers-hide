@@ -1,11 +1,18 @@
+const style = document.createElement("style");
+
+style.textContent = `
+  .breadcrumb {
+    visibility: hidden;
+  }
+`;
+document.documentElement.appendChild(style);
+
 const elementVisibility = {
   ".part-title, .breadcrumb": false,
   "td.level": false,
   "td.finished-count": false,
   "td.acceptance-rate": false,
 };
-
-document.documentElement.style.visibility = "hidden";
 
 function loadSettings() {
   chrome.storage.local.get("visibilitySettings", (data) => {
@@ -40,7 +47,6 @@ const observer = new MutationObserver((mutations) => {
   }
   timeout = setTimeout(() => {
     loadSettings();
-    document.documentElement.style.visibility = "visible";
     observer.disconnect();
   }, 100);
 });
