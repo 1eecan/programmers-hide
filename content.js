@@ -55,10 +55,8 @@ const observer = new MutationObserver(() => {
     clearTimeout(timeout);
   }
   timeout = setTimeout(() => {
-    document.documentElement.style.visibility = "hidden";
     loadSettings();
-    document.documentElement.style.visibility = "visible";
-  }, 1);
+  }, 100);
 });
 
 observer.observe(document.documentElement, {
