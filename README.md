@@ -16,6 +16,9 @@
 
 편하게 이슈에 남겨주시면 정말 감사하겠습니다!!🙇‍♂️
 
+# 개발 회고
+https://1eecan.me/post/vanilla/chrome_extension_programmers-hide/
+
 ### todo
 
 - [x] 플리커링 해결하기(v1.3)
